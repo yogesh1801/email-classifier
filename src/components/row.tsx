@@ -63,9 +63,6 @@ export function Row(props : any) {
                   <SheetContent className="w-full sm:w-full" side={"top"}>
                     <SheetHeader>
                       <SheetTitle>Email details</SheetTitle>
-                      <SheetDescription>
-                        Make changes to your profile here. Click save when you're done.
-                      </SheetDescription>
                     </SheetHeader>
                     <div className="grid gap-4 py-4">
                       <div className="grid grid-cols-4 items-center gap-4">
