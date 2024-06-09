@@ -12,7 +12,7 @@ export default async function UserAvatar() {
     if (!session.user) return null
     return (
       <Avatar>
-      <AvatarImage src={session.user.image} alt="@shadcn" />
+      <AvatarImage src={session.user.image || undefined} alt="@shadcn" />
       <AvatarFallback>CN</AvatarFallback>
       </Avatar>
     )
