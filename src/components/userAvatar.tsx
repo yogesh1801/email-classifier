@@ -7,9 +7,9 @@ import {
  
 export default async function UserAvatar() {
   const session = await auth()
+  if(session == null) return null
   if(session!=null){
     if (!session.user) return null
-
     return (
       <Avatar>
       <AvatarImage src={session.user.image} alt="@shadcn" />
