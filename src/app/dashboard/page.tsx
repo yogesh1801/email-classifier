@@ -57,7 +57,7 @@ export default function Dashboard() {
                 openaiKey,
             });
             
-            const classifiedEmails = response.data;
+            const classifiedEmails = JSON.parse(response.data);
             const updatedEmails = emails.map((email: any, index: number) => ({
                 ...email,
                 label: classifiedEmails[index]?.label || "Unclassified"
@@ -84,6 +84,7 @@ export default function Dashboard() {
                             } else {
                                 const messages = response.data.messages;
                                 window.localStorage.setItem("emails", JSON.stringify(messages));
+                                window.location.href = "/dashboard"
                             }
                             setLoadingEmail(false);
                         }}>
@@ -92,17 +93,17 @@ export default function Dashboard() {
                         </Button>
                         <div className="mt-3 mx-2">
                             <Select value={selectedEmailCount.toString()} onValueChange={handleEmailCountChange}>
-                                <SelectTrigger className="w-[180px]">
+                                <SelectTrigger className="w-[120px]">
                                     <SelectValue placeholder="Select Emails" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectGroup>
-                                        <SelectLabel>Select Emails</SelectLabel>
-                                        {[...Array(15).keys()].map((i) => (
-                                            <SelectItem key={i + 1} value={(i + 1).toString()}>
-                                                {i + 1}
-                                            </SelectItem>
-                                        ))}
+                                <SelectGroup>
+                                    <SelectLabel>Select Emails</SelectLabel>
+                                     {[...Array(15)].map((_, index) => (
+                                        <SelectItem key={index + 1} value={(index + 1).toString()}>
+                                        {index + 1}
+                                        </SelectItem>
+                                     ))}
                                     </SelectGroup>
                                 </SelectContent>
                             </Select>

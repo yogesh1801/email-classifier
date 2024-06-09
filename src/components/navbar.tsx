@@ -15,8 +15,8 @@ export default async function Navbar (){
     {
       session==null ? null : (
         <h4 className="scroll-m-20 text-sm font-semibold tracking-tight ml-4">
-        {session.user.name}<br/>
-        {session.user.email}
+        {session.user?.name}<br/>
+        {session.user?.email}
         </h4>
       )
     }

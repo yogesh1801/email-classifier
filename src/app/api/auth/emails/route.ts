@@ -73,6 +73,7 @@ export async function GET(req: NextRequest) {
                     let body = '';
                     if (messageDetails.data.payload?.parts) {
                         body = Buffer.from(messageDetails.data.payload.parts[0]?.body?.data || '', 'base64').toString();
+                        console.log(body)
                     }
 
                     return {
